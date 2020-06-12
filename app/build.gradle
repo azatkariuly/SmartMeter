@@ -20,6 +20,11 @@ android {
     }
 }
 
+repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -41,4 +46,8 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation 'com.android.support:preference-v7:23.3.0'
+
+    //STOMP over WebSockets
+    implementation 'com.github.NaikSoftware:StompProtocolAndroid:1.6.4'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.5'
 }
