@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="42dp"
-        android:background="?android:attr/windowBackground"
+        android:background="#495458"
         android:backgroundTint="@color/colorNavigation"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu" />

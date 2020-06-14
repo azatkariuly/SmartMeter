@@ -31,10 +31,8 @@ public class LiveFragment extends Fragment {
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.##");
     private static final Gson GSON_CONVERTER = new Gson();
 
-    private NotificationManagerCompat notificationManager;
-
-    private ImageView onIndicatorImg, offIndicatorImg, alertDialogImg;
-    private TextView onIndicatorText, offIndicatorText, alertText;
+    private ImageView onIndicatorImg, offIndicatorImg;
+    private TextView onIndicatorText, offIndicatorText;
 
     private TextView voltageText, currentText;
 
@@ -45,18 +43,14 @@ public class LiveFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_live, container, false);
 
-        notificationManager = NotificationManagerCompat.from(getActivity());
-
         onIndicatorText = view.findViewById(R.id.on);
         offIndicatorText = view.findViewById(R.id.off);
-        alertText = view.findViewById(R.id.textView18);
 
         voltageText = view.findViewById(R.id.voltage);
-        currentText = view.findViewById(R.id.amper);
+        currentText = view.findViewById(R.id.current);
 
         onIndicatorImg = view.findViewById(R.id.indicator3);
         offIndicatorImg = view.findViewById(R.id.indicator);
-        alertDialogImg = view.findViewById(R.id.hzline);
 
         offIndicatorImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,15 +63,6 @@ public class LiveFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 turnAlertOff();
-            }
-        });
-
-        alertDialogImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                openDialog();
-
-
             }
         });
 
@@ -120,8 +105,8 @@ public class LiveFragment extends Fragment {
     private void setTelemetry(String payload) {
         Objects.requireNonNull(getActivity()).runOnUiThread(() -> {
             Telemetry telemetry = GSON_CONVERTER.fromJson(payload, Telemetry.class);
-            voltageText.setText(DECIMAL_FORMAT.format(telemetry.getVoltage()) + " V");
-            currentText.setText(DECIMAL_FORMAT.format(telemetry.getCurrent()) + " A");
+            voltageText.setText(String.valueOf(telemetry.getVoltage()).substring(0, 5) + " V");
+            currentText.setText(String.valueOf(telemetry.getCurrent()).substring(0, 5) + " A");
         });
     }
 }
