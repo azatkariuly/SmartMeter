@@ -6,7 +6,7 @@
     android:background="#202020"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SmartLogin.LoginActivity">
+    tools:context=".login.LoginActivity">
 
 
     <EditText

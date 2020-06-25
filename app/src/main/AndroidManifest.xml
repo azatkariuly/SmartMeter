@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Settings.NotificationSettingsActivity" />
         <activity android:name=".Settings.AccountSettingsActivity" />
-        <activity android:name=".SmartLogin.LoginActivity" />
+        <activity android:name=".login.LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashScreenActivity"

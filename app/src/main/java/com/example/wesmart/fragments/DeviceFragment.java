@@ -11,57 +11,57 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.wesmart.Graphs.DayGraph;
-import com.example.wesmart.Graphs.MonthGraph;
-import com.example.wesmart.Graphs.WeekGraph;
-import com.example.wesmart.Graphs.YearGraph;
+import com.example.wesmart.graphs.PowerGraph;
+import com.example.wesmart.graphs.VibrationGraph;
+import com.example.wesmart.graphs.AgingRateGraph;
+import com.example.wesmart.graphs.LoadForecastGraph;
 import com.example.wesmart.R;
 
 public class DeviceFragment extends Fragment {
 
-    Button dayBtn, weekBtn, monthBtn, yearBtn;
+    private Button powerBtn, agingRateBtn, vibrationBtn, loadForecastBtn;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_device, container, false);
 
-        loadFragment(new DayGraph());
+        loadFragment(new PowerGraph());
 
-        dayBtn = view.findViewById(R.id.btn_day);
-        weekBtn = view.findViewById(R.id.btn_week);
-        monthBtn = view.findViewById(R.id.btn_month);
-        yearBtn = view.findViewById(R.id.btn_year);
+        powerBtn = view.findViewById(R.id.btn_power);
+        agingRateBtn = view.findViewById(R.id.btn_aging_rate);
+        vibrationBtn = view.findViewById(R.id.btn_vibration);
+        loadForecastBtn = view.findViewById(R.id.btn_load_forecasting);
 
-        dayBtn.setOnClickListener(new View.OnClickListener() {
+        powerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeBtnColor(1);
-                loadFragment(new DayGraph());
+                loadFragment(new PowerGraph());
             }
         });
 
-        weekBtn.setOnClickListener(new View.OnClickListener() {
+        agingRateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeBtnColor(2);
-                loadFragment(new WeekGraph());
+                loadFragment(new AgingRateGraph());
             }
         });
 
-        monthBtn.setOnClickListener(new View.OnClickListener() {
+        vibrationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeBtnColor(3);
-                loadFragment(new MonthGraph());
+                loadFragment(new VibrationGraph());
             }
         });
 
-        yearBtn.setOnClickListener(new View.OnClickListener() {
+        loadForecastBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeBtnColor(4);
-                loadFragment(new YearGraph());
+                loadFragment(new LoadForecastGraph());
             }
         });
 
@@ -69,51 +69,48 @@ public class DeviceFragment extends Fragment {
     }
 
 
-    private boolean loadFragment(Fragment fragment) {
+    private void loadFragment(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container1, fragment)
                     .commit();
 
-            return true;
         }
-
-        return false;
     }
 
     private void changeBtnColor(int i) {
 
         if (i==1) {
-            dayBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
-            dayBtn.setTextColor(Color.parseColor("#ffffff"));
+            powerBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
+            powerBtn.setTextColor(Color.parseColor("#ffffff"));
         } else {
-            dayBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
-            dayBtn.setTextColor(Color.parseColor("#000000"));
+            powerBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
+            powerBtn.setTextColor(Color.parseColor("#000000"));
         }
 
         if (i==2) {
-            weekBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
-            weekBtn.setTextColor(Color.parseColor("#ffffff"));
+            agingRateBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
+            agingRateBtn.setTextColor(Color.parseColor("#ffffff"));
         } else {
-            weekBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
-            weekBtn.setTextColor(Color.parseColor("#000000"));
+            agingRateBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
+            agingRateBtn.setTextColor(Color.parseColor("#000000"));
         }
 
         if (i==3) {
-            monthBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
-            monthBtn.setTextColor(Color.parseColor("#ffffff"));
+            vibrationBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
+            vibrationBtn.setTextColor(Color.parseColor("#ffffff"));
         } else {
-            monthBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
-            monthBtn.setTextColor(Color.parseColor("#000000"));
+            vibrationBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
+            vibrationBtn.setTextColor(Color.parseColor("#000000"));
         }
 
         if (i==4) {
-            yearBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
-            yearBtn.setTextColor(Color.parseColor("#ffffff"));
+            loadForecastBtn.setBackgroundColor(Color.parseColor("#69ab1d"));
+            loadForecastBtn.setTextColor(Color.parseColor("#ffffff"));
         } else {
-            yearBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
-            yearBtn.setTextColor(Color.parseColor("#000000"));
+            loadForecastBtn.setBackgroundColor(Color.parseColor("#bdbdbd"));
+            loadForecastBtn.setTextColor(Color.parseColor("#000000"));
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.wesmart.Graphs;
+package com.example.wesmart.graphs;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,17 +23,18 @@ import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 
-public class DayGraph  extends Fragment {
+public class LoadForecastGraph extends Fragment {
+
     LineChartView lineChartView;
 
-    String[] axisData = {"9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm",
-            "6pm", "7pm", "8pm"};
-    int[] yAxisData = {50, 20, 15, 30, 20, 60, 15, 40, 45, 10, 90, 18};
+    String[] axisData = {"2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016",
+            "2017", "2018", "2019"};
+    int[] yAxisData = {1510, 1520, 1545, 1530, 1560, 1525, 1515, 1540, 1545, 1590, 1510, 1518};
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.graph_day, container, false);
+        View view = inflater.inflate(R.layout.graph_load_forecasting, container, false);
 
         lineChartView = view.findViewById(R.id.chart);
 
@@ -66,8 +67,8 @@ public class DayGraph  extends Fragment {
         lineChartView.setLineChartData(data);
 
         Viewport viewport = new Viewport(lineChartView.getMaximumViewport());
-        viewport.top = 100;
-        viewport.bottom = 0;
+        viewport.top = 1600;
+        viewport.bottom = 1500;
 
         lineChartView.setMaximumViewport(viewport);
         lineChartView.setCurrentViewport(viewport);

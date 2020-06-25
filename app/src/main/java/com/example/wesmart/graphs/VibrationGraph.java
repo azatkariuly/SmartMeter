@@ -1,4 +1,4 @@
-package com.example.wesmart.Graphs;
+package com.example.wesmart.graphs;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,16 +23,17 @@ import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 
-public class WeekGraph extends Fragment {
+public class VibrationGraph extends Fragment {
     LineChartView lineChartView;
 
-    String[] axisData = {"Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "San"};
-    int[] yAxisData = {130, 120, 160, 115, 140, 110, 118};
+    String[] axisData = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+            "Oct", "Nov", "Dec"};
+    int[] yAxisData = {620, 650, 640, 615, 630, 660, 615, 640, 645, 630, 690, 618};
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.graph_week, container, false);
+        View view = inflater.inflate(R.layout.graph_vibration, container, false);
 
         lineChartView = view.findViewById(R.id.chart);
 
@@ -64,13 +65,13 @@ public class WeekGraph extends Fragment {
 
         lineChartView.setLineChartData(data);
 
+
         Viewport viewport = new Viewport(lineChartView.getMaximumViewport());
-        viewport.top = 170;
-        viewport.bottom = 100;
+        viewport.top = 700;
+        viewport.bottom = 600;
 
         lineChartView.setMaximumViewport(viewport);
         lineChartView.setCurrentViewport(viewport);
-
         return view;
     }
 }

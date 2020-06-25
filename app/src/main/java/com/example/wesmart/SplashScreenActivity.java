@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.wesmart.SmartLogin.LoginActivity;
+import com.example.wesmart.login.LoginActivity;
 
 import gr.net.maroulis.library.EasySplashScreen;
 

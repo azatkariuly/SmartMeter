@@ -1,4 +1,4 @@
-package com.example.wesmart.SmartLogin;
+package com.example.wesmart.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 

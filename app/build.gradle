@@ -41,6 +41,9 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //Json
+    implementation 'com.android.volley:volley:1.1.1'
+
     //Splash Screen Dependency
     implementation 'gr.pantrif:easy-android-splash-screen:0.0.1'
 
