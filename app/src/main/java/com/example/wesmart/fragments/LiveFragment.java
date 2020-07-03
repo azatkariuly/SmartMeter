@@ -34,7 +34,7 @@ public class LiveFragment extends Fragment {
     private ImageView onIndicatorImg, offIndicatorImg;
     private TextView onIndicatorText, offIndicatorText;
 
-    private TextView voltageText, currentText;
+    private TextView voltageText, currentText, powerText, powerFactorText;
 
     private StompManager stompManager;
 
@@ -48,6 +48,9 @@ public class LiveFragment extends Fragment {
 
         voltageText = view.findViewById(R.id.voltage);
         currentText = view.findViewById(R.id.current);
+
+        powerFactorText = view.findViewById(R.id.power_factor);
+        powerText = view.findViewById(R.id.power);
 
         onIndicatorImg = view.findViewById(R.id.indicator3);
         offIndicatorImg = view.findViewById(R.id.indicator);
@@ -107,6 +110,9 @@ public class LiveFragment extends Fragment {
             Telemetry telemetry = GSON_CONVERTER.fromJson(payload, Telemetry.class);
             voltageText.setText(String.valueOf(telemetry.getVoltage()).substring(0, 5) + " V");
             currentText.setText(String.valueOf(telemetry.getCurrent()).substring(0, 5) + " A");
+
+            powerFactorText.setText(String.valueOf(telemetry.getCosphi()).substring(0, 5));
+            powerText.setText(String.valueOf(telemetry.getPower()).substring(0, 5));
         });
     }
 }
